@@ -1,4 +1,4 @@
-class RecipeCard {
+export class RecipeCard {
     constructor(data){
 
         this._id = data.id
@@ -39,24 +39,35 @@ class RecipeCard {
         return this._ustensils
     }
 
-    createVideoCard(){
-        this.$wrapperCard = document.createElement('div')
+    get createRecipeCard(){
+        return createRecipeCard()
+    }
+    // createRecipeCard(){
+    //     this.$wrapperCard = document.createElement('div')
         
-        const card = `
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">${this._name}</h2>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    //     const card = `
+    //             <div class="card" style="width: 18rem;">
+    //                 <img class="card-img-top" src="../assets/data/grey.jpg" alt="Card image cap">
+    //                 <div class="card-body">
+    //                     <aside>
+    //                         <h2 class="card-title">${this._name}</h2>
+    //                         <h3 class="card-subtitle">${[this._ingredients]}</h3>
+    //                     </aside>
+    //                     <aside>
+    //                         <h2 class="card-title">${this._time}</h2>
+    //                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    //                     </aside>
                     
-                    </div>
-                </div>
-            `
+    //                 </div>
+    //             </div>
+    //         `
 
 
         
-        this.$wrapperCard.innerHTML = card
-        return this.$wrapperCard    
-    };
+    //     this.$wrapperCard.innerHTML = card
+    //     return this.$wrapperCard    
+    // };
 
  }
+
+
