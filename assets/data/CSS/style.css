@@ -1,3 +1,39 @@
-.logo{
-    
+body{
+    padding-top: 3rem;
+    padding-right: 8rem;
+    padding-left: 8rem
+}
+.row.header{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.time{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card-title-time {
+    padding-top: 0.3rem;
+    margin-left: 0.75rem;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.card-deck{
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-between;
 }

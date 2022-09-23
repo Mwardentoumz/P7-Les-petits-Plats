@@ -16,7 +16,9 @@ class App {
         console.log(NewRecipe)
 
 
-
+        const AllIng = []
+        const AllUstensils = []
+        const AllAppliance = []
 
         NewRecipe.forEach(RecipeCard => {
             RecipeCard.$wrapperCard = document.createElement('div')
@@ -24,9 +26,14 @@ class App {
             const arr = RecipeCard.ingredients
             
             
+            
+            
             function makeUL(arr) {
                 var list = document.createElement('ul')
                 arr.forEach(ingredient => {
+
+                    AllIng.push(ingredient.ingredient.toLowerCase())
+                    
                     // console.log(ingredient.ingredient, ingredient.quantity, ingredient.unit)
                     var unt = ingredient.hasOwnProperty('unit')
                     if(unt){
@@ -46,12 +53,13 @@ class App {
                     var li = document.createElement('li')
                     li.innerHTML = ingredient.ingredient + " : " + quantity + " " + unit
                     list.appendChild(li)
-                    console.log(list)
+                    
 
 
                     
 
                 })
+                
                 return list.innerHTML
             }
 
@@ -59,20 +67,22 @@ class App {
 
 
             var card = `
-                                <div class="card center" style="width: 30rem;">
+                                <div class="card center mb-5" style="width: 32rem; max-height: 600px">
                                     <img class="card-img-top" src="../assets/data/grey.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <aside>
+                                        <div class="row header">
                                             <h2 class="card-title">${RecipeCard._name}</h2>
-                                            <div id="list-container" class="list-container">${makeUL(arr)}</div>
-                                        </aside>
-                                        <aside>
-                                            <h2 class="card-title">${RecipeCard._time}</h2>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        </aside>
-                                    
+                                            <div class="time">
+                                                <span class="material-symbols-outlined">schedule</span>
+                                                <h1 class="card-subtitle">${RecipeCard._time}</h1>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">${makeUL(arr)}</div>
+                                            <div class="col-sm-6 text-wrap">${RecipeCard._description}</div>
+                                        </div>
                                     </div>
-                                </div>`
+                                </div>`            
             RecipeCard.$wrapperCard.innerHTML = card
             RecipesSection.appendChild(RecipeCard.$wrapperCard)
 
@@ -81,7 +91,15 @@ class App {
 
 
         })
+
+        console.log(AllIng)
+        // toutlesing.filter()
+        let set = new Set(AllIng)
+        console.log(set)
+
+        
     }
+    
 }
 
 
