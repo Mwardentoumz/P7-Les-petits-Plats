@@ -37,3 +37,65 @@ body{
     margin-left: -15px;
     justify-content: space-between;
 }
+
+.p-filters-wrapper{
+    display: flex;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.filtres__filtres{
+    width: 170px;
+    border-radius: 5px;
+    height: 69px;
+    margin-right: 80px;
+}
+
+.filtres__filtres__1{
+    display: flex;
+    background-color: #3282F7;
+    width: 170px;
+    border-radius: 5px;
+    height: 69px;
+    margin-right: 80px;
+}
+.filtres__filtres__2{
+    display: flex;
+    background-color: #68D9A4;
+    width: 170px;   
+    border-radius: 5px;
+    height: 69px;
+    margin-right: 80px;
+}
+.filtres__filtres__3{
+    display: flex;
+    background-color: #ED6454;
+    width: 170px;
+    border-radius: 5px;
+    height: 69px;
+    margin-right: 80px;
+}
+
+.filtres-recherche{
+    background: none;
+    border: none;
+    width: 100%;
+    font-family: Lato;
+    text-align: center
+    ;
+}
+.filtres-recherche::placeholder{
+    color: white;
+    text-align: center;
+}
+
+.btn-danger{
+    color: none;
+    background-color: none;
+    border-color: none;
+}
+
+.show{
+    display: flex;
+    position:relative;
+}
