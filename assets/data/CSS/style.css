@@ -95,7 +95,18 @@ body{
     border-color: none;
 }
 
-.show{
+.dropdown-menu{
+    top: 20.5rem !important;
+    left: 8rem !important;
+}
+
+.dropdown-item {
+    display: flex !important;
+    width: 22% !important;
+}
+
+ul{
     display: flex;
-    position:relative;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
