@@ -18,7 +18,7 @@
                 <img class=".img-fluid rounded mx-auto d-block" src="../assets/images/logo.png" alt="logo"
                     aria-label="logo Les petits Plats">
                 <div class="input-group mb-3 mx-auto">
-                    <input type="text" class="form-control" placeholder="Votre recherche" aria-label="Votre recherche"
+                    <input  id="mainsearch" type="text" class="form-control" placeholder="Votre recherche" aria-label="Votre recherche"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Button</button>
@@ -35,7 +35,7 @@
             <!-- Filters for searching -->
 
 
-            <div class="p-filters-wrapper">
+            <div id="clickEvent" class="p-filters-wrapper">
                 <div class="filtres__filtres__1">
                     <input type="text" class="filtres-recherche" placeholder="Ingrédients" aria-label="Ingrédients"
                         aria-describedby="basic-addon2">
@@ -85,6 +85,7 @@
         <script src="../scripts/api.js"></script>
         <script src="../scripts/RecipeFactory.js" type="module"></script>
         <script src="../scripts/index.js" type="module"></script>
+        <script src="../scripts/searchAlgo.js" type="module"></script>
 
     </body>
 </hmtl>
