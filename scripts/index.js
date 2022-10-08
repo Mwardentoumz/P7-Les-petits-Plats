@@ -4,7 +4,10 @@ import { RecipeCard } from './RecipeFactory.js'
 const mainsearch = document.getElementById('mainsearch')
 const RecipesSection = document.getElementById("deck");
 const cards = document.getElementsByClassName('card center mb-5')
-let results = []
+// INITIATE ARAYS
+let resultsIngredients = []
+let resultsDescriptions = []
+let resultsTitles = []
 let AllIng = []
 let AllUstensils = []
 let AllAppliance = []
@@ -65,6 +68,8 @@ class App {
 
             RecipesSection.appendChild(RecipeCard.$wrapperCard)
         })
+        // cette fonction reprends les ingrédients lorsque la boucle est initiée et génère la liste des ingrédients
+        
         // console.log(AllUstensils)
         // return a list of elements under the dropdown button for ingredients
         let IngDropdown = document.getElementById('ingrédients')
@@ -127,20 +132,6 @@ class App {
         })
 
     }
-
-    listenInput(RecipesData) {
-        mainsearch.addEventListener('keyup', (e) => {
-            const inputValue = String(e.target.value).toLowerCase();
-            console.log(inputValue)
-
-            if (inputValue.length >= 3) {
-                this.findInTitle(inputValue, RecipesData)
-                console.log(results)
-
-            }
-
-        })
-    }
     makeUL(arr) {
         let list = document.createElement('ul')
         arr.forEach(ingredient => {
@@ -156,21 +147,55 @@ class App {
 
         return list.innerHTML
     }
+    // cette fonction écoute le champ de recherche principal
+    listenInput(RecipesData) {
+        mainsearch.addEventListener('keyup', (e) => {
+            const inputValue = String(e.target.value).toLowerCase();
+            console.log(inputValue)
+
+            if (inputValue.length >= 3) {
+                this.findInTitle(inputValue, RecipesData)
+                this.findInIngredients(inputValue, RecipesData)
+                this.findInDescription(inputValue, RecipesData)
+                console.log(resultsTitles)
+                console.log(resultsIngredients)
+                console.log(resultsDescriptions)
+
+            }
+
+        })
+    }
+    
+    // cette fonction recherche le résultat de l'input dans les titres des recettes
     findInTitle(inputValue, RecipesData) {
-        results = []
+        resultsTitles = []
         for (let i = 0; i < RecipesData.length; i++) {
             if (RecipesData[i].name.toLowerCase().includes(inputValue)) {
-                results.push(RecipesData[i])
-                console.log(RecipesData[i])
+                resultsTitles.push(RecipesData[i])
+                // console.log(RecipesData[i])
             }
         }
         this.displayData(results)
     }
+    // cette fonction recherche le résultat de l'input dans les descriptions des recettes
     findInDescription(inputValue, RecipesData){
-        results
+        resultsDescriptions = []
+        for (let i=0; i < RecipesData.length; i++){
+            if (RecipesData[i].description.toLowerCase().includes(inputValue)){
+                resultsDescriptions.push(RecipesData[i])
+                // console.log(RecipesData[i])
+            }
+        }
     }
-    findInDescription(inputValue, RecipesData){
-        results
+    // cette fonction recherche le résultat de l'input dans les ingrédients des recettes
+    findInIngredients(inputValue, RecipesData){
+        resultsIngredients = []
+        for (let i=0; i < RecipesData[i].length; i++){
+            if(RecipesData[i].ingredients.toLowerCase().includes(inputValue)){
+                resultsIngredients.push(RecipesData[i])
+                // console.log(RecipesData[i])
+            }
+        }
     }
     async init() {
 
