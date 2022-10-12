@@ -21,7 +21,7 @@
                     <input  id="mainsearch" type="text" class="form-control" placeholder="Votre recherche" aria-label="Votre recherche"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Button</button>
+                        <button class="btn btn-outline-secondary" type="button">Rechercher</button>
                     </div>
                 </div>
             </div>
@@ -29,48 +29,51 @@
         <main>
 
 
-            <div class="filtres-active"></div>
+            <div id="filtres-active" class="filtres-active"></div>
 
 
             <!-- Filters for searching -->
 
 
             <div id="clickEvent" class="p-filters-wrapper">
-                <div class="filtres__filtres__1">
-                    <input type="text" class="filtres-recherche" placeholder="Ingrédients" aria-label="Ingrédients"
-                        aria-describedby="basic-addon2">
+                <div class="filtres__filtres__1" id="flt">
+                    <input id="inputingrédients" type="text" class="input-dropdown form-control bg-transparent border-0 ps-4 pe-0 py-3 text-white fw-bold" placeholder="Ingrédients" aria-label="Ingrédients"
+                        aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
-                        <button id="toggle" id="ingbutton" type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split btnfilters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
+                        <button id="toggle" id="ingbutton" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
-                          <div id="ingrédients" id ="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; width:50%; transform: translate3d(0px, 38px, 0px); top: 1rem; left: 8rem; will-change: transform;">
+                          <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
                             <!-- return here the list of element present in the current displayed element -->
+                            <ul id="ingrédients" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>
                     </div>
                 </div>
 
-                <div class="filtres__filtres__2">
-                    <input type="text" class="filtres-recherche" placeholder="Ustensiles" aria-label="Ustensiles"
-                        aria-describedby="basic-addon2">
+                <div class="filtres__filtres__2" id="flt">
+                    <input id="inputustensiles" type="text" class="input-dropdown form-control bg-transparent border-0 ps-4 pe-0 py-3 text-white fw-bold" placeholder="Ustensiles" aria-label="Ustensiles"
+                        aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
-                        <button id="toggle" type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split btnfilters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="toggle" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
-                          <div id="Ustensiles" id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <div  id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <!-- return here the list of element present in the current displayed element -->
+                            <ul id="Ustensiles" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>
                     </div>
                 </div>
 
-                <div class="filtres__filtres__3">
-                    <input type="text" class="filtres-recherche" placeholder="Appareils" aria-label="Appareils"
-                        aria-describedby="basic-addon2">
+                <div class="filtres__filtres__3" id="flt">
+                    <input id="inputappareils" type="text" class="input-dropdown form-control bg-transparent border-0 ps-4 pe-0 py-3 text-white fw-bold" placeholder="Appareils" aria-label="Appareils"
+                        aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
-                        <button id="toggle" type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split btnfilters" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="toggle" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
-                          <div id="Appliances" id="dropdown" id="appliances" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <div  id="dropdown" id="appliances" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <!-- return here the list of element present in the current displayed element -->
+                            <ul id="Appliances" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>
                     </div>
                 </div>
@@ -85,7 +88,7 @@
         <script src="../scripts/api.js"></script>
         <script src="../scripts/RecipeFactory.js" type="module"></script>
         <script src="../scripts/index.js" type="module"></script>
-        <script src="../scripts/searchAlgo.js" type="module"></script>
+        <script src="../scripts/filters.js" type="module"></script>
 
     </body>
 </hmtl>
