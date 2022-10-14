@@ -34,18 +34,14 @@ class App {
         // boucler dans les élements récuperés pour créer les cartes
         NewRecipe.forEach(element => {
             element.$wrapperCard = document.createElement('div')
+            // push elements into arrays for filters
             const arr = element.ingredients
-            // separate appliances into unique elements
+            
             let Appslice = element._appliance.split(',')
             console.log(element._ustensils)
             for (let i = 0; i < element._ustensils.length; i++){
                 AllUstensils.push(element._ustensils[i])
             }
-
-
-            // push elements into arrays for filters
-
-
             AllAppliance.push(Appslice[0])
             // générer la liste d'ingrédients
             this.makeUL(arr)
@@ -69,16 +65,11 @@ class App {
                     </div>`
             element.$wrapperCard.innerHTML = card
             RecipesSection.appendChild(element.$wrapperCard)
-            // récupérer les listes pour les filtres
-            
-            // récupérer l'évenement du clic pour ouvrir les listes
-            
         })
         listeIngrédients(AllIng)
         listeUstensiles(AllUstensils)
         listesAppareils(AllAppliance)
         console.log(AllUstensils)
-
     }
     // cette fonction gère la liste des ingrédients dans chaque carte
     makeUL(arr) {
@@ -95,7 +86,6 @@ class App {
         })
         return list.innerHTML
     }
-
     // cette fonction écoute le champ de recherche principal
     listenInput(RecipesData) {
         console.log(concat)
@@ -115,9 +105,6 @@ class App {
             }
         })
     }
-
-    
-
     async init() {
         // const RecipesData = await this.getApi()
         let RecipesData = await this.getApi()
