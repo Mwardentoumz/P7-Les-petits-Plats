@@ -17,11 +17,11 @@
             <div class="container_fluid">
                 <img class=".img-fluid rounded mx-auto d-block" src="../assets/images/logo.png" alt="logo"
                     aria-label="logo Les petits Plats">
-                <div class="input-group mb-3 mx-auto">
-                    <input  id="mainsearch" type="text" class="form-control" placeholder="Votre recherche" aria-label="Votre recherche"
+                <div id="mainsearchbar" class="input-group mb-3 mx-auto">
+                    <input  id="mainsearch" type="text" class="form-control" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" aria-label="Rechercher un ingrédient, appareil, ustensiles ou une recette"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Rechercher</button>
+                        <button id="loupe" class="btn btn-outline-secondary" type="button"><img src="../assets/data/assets/icons8-search-48.png" class="loupe"></button>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                         aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
                         <button id="toggle" id="ingbutton" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
-                            <span class="sr-only">Toggle Dropdown</span>
+                            
                           </button>
-                          <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
+                          <div id="Ingrédients" id="dropdown" class="dropdown-menu ingrédients" aria-labelledby="dropdownMenuLink" x-placement="bottom-start">
                             <!-- return here the list of element present in the current displayed element -->
                             <ul id="ingrédients" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>
@@ -55,9 +55,9 @@
                         aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
                         <button id="toggle" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                            
                           </button>
-                          <div  id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <div  id="ustensiles" id="dropdown" class="dropdown-menu Ustensiles" aria-labelledby="dropdownMenuLink">
                             <!-- return here the list of element present in the current displayed element -->
                             <ul id="Ustensiles" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>
@@ -69,9 +69,9 @@
                         aria-describedby="basic-addon2" aria-expanded="false">
                     <div class="input-group-append">
                         <button id="toggle" type="button" class="btn-chevron btn mx-2 rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                            
                           </button>
-                          <div  id="dropdown" id="appliances" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <div id="appliances" id="dropdown"class="dropdown-menu appliances" aria-labelledby="dropdownMenuLink">
                             <!-- return here the list of element present in the current displayed element -->
                             <ul id="Appliances" class="dropdown-list-tags list-group row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-row justify-content-start m-0 p-0 fw-normal"></ul>
                           </div>

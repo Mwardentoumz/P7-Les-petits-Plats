@@ -42,6 +42,10 @@ export class RecipeCard {
     get createRecipeCard(){
         return createRecipeCard()
     }
+
+    get image(){
+        return "../assets/${this._name}"
+    }
     // createRecipeCard(){
     //     this.$wrapperCard = document.createElement('div')
         

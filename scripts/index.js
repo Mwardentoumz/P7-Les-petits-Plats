@@ -1,5 +1,6 @@
 import { RecipeCard } from './RecipeFactory.js'
 import { clickonFilters, gestionClic, listeIngrédients, listeUstensiles, listesAppareils } from './filters.js';
+import { findInTitle, findInIngredients, findInDescription, concatener} from './searchAlgo.js'
 
 
 
@@ -50,19 +51,19 @@ class App {
             this.makeUL(arr)
             // contenu HTML des cartes
             var card = `
-                    <div class="card center mb-5" style="width: 32rem; max-height: 600px">
-                        <img class="card-img-top" src="../assets/data/grey.jpg" alt="Card image cap">
+                    <div id"cards" class="card center mb-5 mw-25">
+                        <img id="cartesimg" class="card-img-top" src="../assets/data/images/${element._name}.jpg" alt="Card image cap">
                         <div class="card-body">
                             <div class="row header">
                                 <h2 class="card-title">${element._name}</h2>
                                 <div class="time">
-                                    <span class="material-symbols-outlined">schedule</span>
+                                    <span id="clock" class="material-symbols-outlined">schedule</span>
                                     <h1 class="card-subtitle">${element._time}</h1>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">${this.makeUL(arr)}</div>
-                                <div class="col-sm-6 text-wrap">${element._description}</div>
+                            <div id="listdesc" class="row">
+                                <div id="listecard" class="col-sm-6">${this.makeUL(arr)}</div>
+                                <div id="descriptioncard" class="col-sm-6">${element._description}</div>
                             </div>
                         </div>
                     </div>`
@@ -115,46 +116,7 @@ class App {
         })
     }
 
-    // cette fonction recherche le résultat de l'input dans les titres des recettes
-    findInTitle(inputValue, RecipesData) {
-        resultsTitles = []
-        for (let i = 0; i < RecipesData.length; i++) {
-            if (RecipesData[i].name.toLowerCase().includes(inputValue)) {
-                resultsTitles.push(RecipesData[i])
-            }
-        }
-
-    }
-
-    // cette fonction recherche le résultat de l'input dans les descriptions des recettes
-    findInDescription(inputValue, RecipesData) {
-        resultsDescriptions = []
-        for (let i = 0; i < RecipesData.length; i++) {
-            if (RecipesData[i].description.toLowerCase().includes(inputValue)) {
-                resultsDescriptions.push(RecipesData[i])
-            }
-        }
-    }
-
-    // cette fonction recherche le résultat de l'input dans les ingrédients des recettes
-    findInIngredients(inputValue, RecipesData) {
-        resultsIngredients = []
-        for (let i = 0; i < RecipesData[i].length; i++) {
-            if (RecipesData[i].ingredients.toLowerCase().includes(inputValue)) {
-                resultsIngredients.push(RecipesData[i])
-            }
-        }
-    }
-
-    // concatener les 3 résultats ensembles
-    concatener(resultsTitles, resultsDescriptions, resultsIngredients) {
-        resultsConcat = resultsTitles.concat(resultsDescriptions, resultsIngredients)
-        // console.log(resultsConcat)
-        concat = Array.from(new Set(resultsConcat))
-        console.log(concat)
-        let element = concat.map(data => new RecipeCard(data))
-        console.log(element)
-    }
+    
 
     async init() {
         // const RecipesData = await this.getApi()

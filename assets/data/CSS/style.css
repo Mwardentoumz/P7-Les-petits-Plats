@@ -3,6 +3,35 @@ body{
     padding-right: 8rem;
     padding-left: 8rem
 }
+#mainsearchbar{
+    height: 69px;
+    background-color: #e7e7e7 !important;
+}
+#mainsearchbar ::placeholder{
+    height: 69px;
+    background-color: #e7e7e7 !important;
+}
+#mainsearch{
+    background-color: #e7e7e7 !important;
+}
+#loupe{
+    border: none !important;
+    border-radius: 5px;
+}
+.loupe{
+    width: 32px;
+    height: 32px;
+    
+}
+.form-control{
+    height: 69px !important;
+    border-radius: 6px;
+    border: none !important;
+    
+}
+.form-control ::placeholder{
+    height: 69px !important;
+}
 .row.header{
     display: flex;
     -ms-flex-wrap: wrap;
@@ -11,6 +40,12 @@ body{
     margin-left: 0;
     justify-content: space-between;
     align-items: center;
+}
+.card-title{
+    max-width: 70%;
+    font-size: 18px;
+    line-height: 21.6px;
+    font-weight: 500 !important;
 }
 .time{
     display: flex;
@@ -21,14 +56,21 @@ body{
     padding-top: 0.3rem;
     margin-left: 0.75rem;
 }
-
+.card-subtitle{
+    font-size: 18px !important;
+    margin-left: 10px !important;
+}
+#clock {
+    padding-bottom: 7px;
+}
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 48
+  'opsz' 48,
 }
+/* stack de carte */
 .card-deck{
     display: flex;
     -ms-flex-flow: row wrap;
@@ -37,7 +79,43 @@ body{
     margin-left: -15px;
     justify-content: space-between;
 }
-
+/* taille de la carte */
+.card-body{
+    height: 186px !important;
+    background-color: #e7e7e7;
+}
+.card-deck .card {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+    width: 380px;
+}
+/* image */
+#cartesimg{
+    width: 380px;
+    height: 178px;
+    object-fit: cover;
+}
+/* bloc de description */
+#listdesc{
+    max-height: 109px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* liste des ingrédients */
+#listecard{
+    font-size: 12px;
+    line-height: 14.6px;
+    list-style-type: none;
+}
+/* description des cartes */
+#descriptioncard{
+    line-height: 12px;
+    font-size: 12px;
+    
+}
 .p-filters-wrapper{
     display: flex;
     margin-bottom: 25px;
@@ -52,6 +130,18 @@ body{
     align-items: center;
 }
 /* GESTION DES FILTRES DE RECHERCHES */
+.p-filters-wrapper button{
+    width: 32px;
+    /* height: 32px; */
+    height: 65px;
+    margin-top: 5px;
+    background-color: white;
+    background: url(../assets/icons8-chevron-down-50.png) center center / 16px 11px no-repeat;
+}
+.p-filters-wrapper ::placeholder{
+    color: white !important;
+}
+
 .filtres__filtres{
     width: 170px;
     border-radius: 5px;
@@ -68,9 +158,14 @@ body{
     margin-right: 80px;
 }
 .filtres__filtres__1.expanded{
+    transition:ease-in-out 1000ms;
     max-width: 667px;
     /* width: 667px; */
     width: 100%;
+    
+}
+.filtres__filtres__1.expanded button{
+    background: url(../assets/icons8-chevron-up-50.png) center center / 16px 11px no-repeat;
     
 }
 .filtres__filtres__2{
@@ -82,9 +177,14 @@ body{
     margin-right: 80px;
 }
 .filtres__filtres__2.expanded{
+    transition:ease-in-out 1000ms;
     max-width: 667px;
     /* width: 667px; */
     width: 100%;
+    
+}
+.filtres__filtres__2.expanded button{
+    background: url(../assets/icons8-chevron-up-50.png) center center / 16px 11px no-repeat;
     
 }
 .filtres__filtres__3{
@@ -95,10 +195,17 @@ body{
     height: 69px;
     margin-right: 80px;
 }
+
 .filtres__filtres__3.expanded{
+    transition:ease-in-out 1000ms;
     max-width: 667px;
     /* width: 667px; */
     width: 100%;
+    
+}
+
+.filtres__filtres__3.expanded button{
+    background: url(../assets/icons8-chevron-up-50.png) center center / 16px 11px no-repeat;
     
 }
 
@@ -111,23 +218,25 @@ body{
     margin-left: -15px;
     ;
 }
+
 .filtres-recherche::placeholder{
     color: white;
     text-align: center;
 }
 
-
-
 .dropdown-menu{
-    
-    top: 22rem !important;
+    top: 23.7rem !important;
     left: 8rem !important;
-    
+    border: none;
+    color: white !important;
 }
 
 .dropdown-item {
     display: flex !important;
     width: 22% !important;
+    color: white !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 ul{
@@ -151,9 +260,42 @@ ul{
     align-items: center;
     justify-content: space-around;
 }
+#Ingrédients{
+    max-width: 667px;
+    background-color: #3282F7;
+    top: 378px !important;
+    border: none !important;
+}
 
-
-#dropdown{
+#ingrédients{
     position: relative;
+    max-width: 667px;
+    background-color: #3282F7;
+    
+}
+#Ustensiles{
+    position: relative;
+    max-width: 667px;
+    background-color: #68D9A4 !important;
+    
+}
+#ustensiles{
+    background-color: #68D9A4 !important;
+    top: 378px !important;
+    left: 378px !important;
+    border: none;
+    color: white !important;
+}
+#appliances{
+    background-color: #ED6454 !important;
+    top: 378px !important;
+    left: 628px !important;
+    border: none !important;
+}
+#Appliances{
+    position: relative;
+    max-width: 667px;
+    background-color: #ED6454 !important;
+    
 }
 
