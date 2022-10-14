@@ -263,7 +263,7 @@ ul{
 #Ingrédients{
     max-width: 667px;
     background-color: #3282F7;
-    top: 378px !important;
+    top: 410px !important;
     border: none !important;
 }
 
@@ -281,14 +281,14 @@ ul{
 }
 #ustensiles{
     background-color: #68D9A4 !important;
-    top: 378px !important;
+    top: 410px !important;
     left: 378px !important;
     border: none;
     color: white !important;
 }
 #appliances{
     background-color: #ED6454 !important;
-    top: 378px !important;
+    top: 410px !important;
     left: 628px !important;
     border: none !important;
 }

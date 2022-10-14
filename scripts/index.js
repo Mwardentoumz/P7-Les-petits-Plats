@@ -1,6 +1,6 @@
+
 import { RecipeCard } from './RecipeFactory.js'
-import { clickonFilters, gestionClic, listeIngrédients, listeUstensiles, listesAppareils } from './filters.js';
-import { findInTitle, findInIngredients, findInDescription, concatener} from './searchAlgo.js'
+import { clickonFilters, gestionClic, listeIngrédients, listeUstensiles, listesAppareils } from './filters.js'
 
 
 
@@ -13,6 +13,8 @@ let resultsIngredients = []
 let resultsDescriptions = []
 let resultsTitles = []
 let resultsConcat = []
+
+
 let AllIng = []
 let AllUstensils = []
 let AllAppliance = []
@@ -36,10 +38,9 @@ class App {
             element.$wrapperCard = document.createElement('div')
             // push elements into arrays for filters
             const arr = element.ingredients
-            
+
             let Appslice = element._appliance.split(',')
-            console.log(element._ustensils)
-            for (let i = 0; i < element._ustensils.length; i++){
+            for (let i = 0; i < element._ustensils.length; i++) {
                 AllUstensils.push(element._ustensils[i])
             }
             AllAppliance.push(Appslice[0])
@@ -69,7 +70,6 @@ class App {
         listeIngrédients(AllIng)
         listeUstensiles(AllUstensils)
         listesAppareils(AllAppliance)
-        console.log(AllUstensils)
     }
     // cette fonction gère la liste des ingrédients dans chaque carte
     makeUL(arr) {
@@ -88,7 +88,6 @@ class App {
     }
     // cette fonction écoute le champ de recherche principal
     listenInput(RecipesData) {
-        console.log(concat)
         mainsearch.addEventListener('keyup', (e) => {
             e.preventDefault()
             const inputValue = String(e.target.value).toLowerCase();
@@ -104,6 +103,50 @@ class App {
                 this.displayData(RecipesData)
             }
         })
+    }
+    // cette fonction recherche le résultat de l'input dans les titres des recettes
+    findInTitle(inputValue, RecipesData) {
+        resultsTitles = []
+        for (let i = 0; i < RecipesData.length; i++) {
+            if (RecipesData[i].name.toLowerCase().includes(inputValue)) {
+                resultsTitles.push(RecipesData[i])
+                
+            }
+        }
+
+    }
+
+    // cette fonction recherche le résultat de l'input dans les descriptions des recettes
+    findInDescription(inputValue, RecipesData) {
+        resultsDescriptions = []
+        for (let i = 0; i < RecipesData.length; i++) {
+            if (RecipesData[i].description.toLowerCase().includes(inputValue)) {
+                resultsDescriptions.push(RecipesData[i])
+                
+            }
+        }
+    }
+
+    // cette fonction recherche le résultat de l'input dans les ingrédients des recettes
+    findInIngredients(inputValue, RecipesData) {
+        resultsIngredients = []
+        for (let i = 0; i < RecipesData[i].length; i++) {
+            if (RecipesData[i].ingredients.toLowerCase().includes(inputValue)) {
+                resultsIngredients.push(RecipesData[i])
+                // console.log(resultsIngredients)
+            }
+        }
+    }
+
+    // concatener les 3 résultats ensembles
+    concatener(resultsTitles, resultsDescriptions, resultsIngredients) {
+        resultsConcat = resultsTitles.concat(resultsDescriptions, resultsIngredients)
+        // console.log(resultsConcat)
+        concat = Array.from(new Set(resultsConcat))
+        console.log(concat)
+        let element = concat.map(data => new RecipeCard(data))
+        console.log(element)
+        
     }
     async init() {
         // const RecipesData = await this.getApi()

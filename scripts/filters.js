@@ -9,6 +9,7 @@ export function listeIngrédients(element) {
         let IngLi = document.createElement('a')
         IngLi.setAttribute('href', '#')
         IngLi.classList = 'dropdown-item'
+        IngLi.classList.add('blue')
         IngLi.innerHTML = " " + element
         IngDropdown.appendChild(IngLi)
 
@@ -23,6 +24,7 @@ export function listeUstensiles(element) {
         let UstLi = document.createElement('a')
         UstLi.setAttribute('href', '#')
         UstLi.classList = 'dropdown-item'
+        UstLi.classList.add('green')
         UstLi.innerHTML = " " + element
         UstDropdown.appendChild(UstLi)
     })
@@ -35,6 +37,7 @@ export function listesAppareils(element) {
         let AppLi = document.createElement('a')
         AppLi.setAttribute('href', '#')
         AppLi.classList = 'dropdown-item'
+        AppLi.classList.add('red')
         AppLi.innerHTML = " " + element
         AppDropdown.appendChild(AppLi)
     })
@@ -64,7 +67,6 @@ export function gestionClic() {
 // eventListener sur un clic dans la liste des filtres
 export function clickonFilters() {
     let clicktarget = document.getElementsByClassName('dropdown-item')
-    console.log(clicktarget)
     for (let item of clicktarget) {
 
         item.addEventListener('click', (e) => {
