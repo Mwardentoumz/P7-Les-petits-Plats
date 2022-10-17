@@ -1,10 +1,17 @@
-
+export function emptyFilters(){
+    let filter1 = document.getElementById('ingrédients')
+    let filter2 = document.getElementById('Ustensiles')
+    let filter3 = document.getElementById('Appliances')
+    filter1.innerHTML = ""
+    filter2.innerHTML = ""
+    filter3.innerHTML = ""
+}
 
 // générer la liste des filtres
 export function listeIngrédients(element) {
     let IngDropdown = document.getElementById('ingrédients')
     let set1 = new Set(element)
-
+    // console.log(set1)
     set1.forEach(element => {
         let IngLi = document.createElement('a')
         IngLi.setAttribute('href', '#')
@@ -18,7 +25,7 @@ export function listeIngrédients(element) {
 export function listeUstensiles(element) {
     let UstDropdown = document.getElementById('Ustensiles')
     let set2 = new Set(element)
-    
+    // console.log(set2)
     set2.forEach(element => {
 
         let UstLi = document.createElement('a')
@@ -32,6 +39,7 @@ export function listeUstensiles(element) {
 export function listesAppareils(element) {
     let AppDropdown = document.getElementById('Appliances')
     let set3 = new Set(element)
+    // console.log(set3)
     set3.forEach(element => {
 
         let AppLi = document.createElement('a')
@@ -47,9 +55,7 @@ export function gestionClic() {
     let filterClickEvent = document.getElementById('clickEvent')
     filterClickEvent.addEventListener('click', (e) => {
         var list = e.target.closest('button')
-        console.log(list.parentNode.parentNode)
         var closeInputField = list.parentNode.parentNode
-        console.log(closeInputField)
         if (list.nextElementSibling.classList.contains('show')) {
             list.ariaExpanded = 'false'
             closeInputField.classList.remove('expanded')
@@ -68,28 +74,41 @@ export function gestionClic() {
 export function clickonFilters() {
     let clicktarget = document.getElementsByClassName('dropdown-item')
     for (let item of clicktarget) {
-
         item.addEventListener('click', (e) => {
             e.preventDefault()
-            console.log(e.target.innerHTML)
             let btnValue = e.target.innerHTML
-            createButton(btnValue)
+            
+            createButton(btnValue, e)
+            // buttonColor(e)
         })
     }
 }
 
 // créer le bouton lors du clic dans les filtres
-function createButton(btnValue) {
+function createButton(btnValue,e) {
     let newFilter = document.createElement('button')
     newFilter.classList.add('btnfilters')
     let closeIcon = ` <span class="material-symbols-outlined">cancel</span>`
     newFilter.innerHTML = btnValue + closeIcon
-
+    let colorTest = e.target.classList
     console.log(newFilter)
+    if(colorTest.contains('blue')){
+        newFilter.style.backgroundColor = '#3282F7';
+    } else if(colorTest.contains('green')){
+        newFilter.style.backgroundColor = '#68D9A4';
+    } else if(colorTest.contains('red')){
+        newFilter.style.backgroundColor = '#ED6454';
+    } 
+    
     let btnPlacement = document.getElementById('filtres-active')
     btnPlacement.appendChild(newFilter)
     removeFilter(newFilter)
 }
+
+// function buttonColor(e, newFilter){
+      
+// }
+
 
 // fonction pour retirer le filtre
 function removeFilter(newFilter) {
