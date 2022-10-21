@@ -105,10 +105,13 @@ function createButton(btnValue,e) {
     removeFilter(newFilter)
 }
 
-// function buttonColor(e, newFilter){
-      
-// }
-
+// écouter le champ de chaque liste
+export function listenInputFilters(){
+    document.addEventListener('click', (e) => {
+        var input = e.target
+        console.log(input)
+    })
+}
 
 // fonction pour retirer le filtre
 function removeFilter(newFilter) {

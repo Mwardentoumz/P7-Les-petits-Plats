@@ -1,6 +1,6 @@
 
 import { RecipeCard } from './RecipeFactory.js'
-import { clickonFilters, gestionClic, listeIngrédients, listeUstensiles, listesAppareils, emptyFilters } from './filters.js'
+import { clickonFilters, gestionClic, listeIngrédients, listeUstensiles, listesAppareils, emptyFilters, listenInputFilters } from './filters.js'
 
 
 
@@ -9,15 +9,10 @@ const mainsearch = document.getElementById('mainsearch')
 const RecipesSection = document.getElementById("deck");
 
 // INITIATE ARAYS
-let resultsIngredients = []
-let resultsDescriptions = []
-let resultsTitles = []
-let resultsConcat = []
 let AllIng = []
 let AllUstensils = []
 let AllAppliance = []
 let concat = []
-
 
 class App {
     constructor() {
@@ -70,16 +65,13 @@ class App {
                     </div>`
             element.$wrapperCard.innerHTML = card
             RecipesSection.appendChild(element.$wrapperCard)
-            
         })
-        
         listeIngrédients(AllIng)
         listeUstensiles(AllUstensils)
         listesAppareils(AllAppliance)
         console.log(AllIng)
-    
     }
-    
+
     // cette fonction gère la liste des ingrédients dans chaque carte
     makeUL(arr) {
         let list = document.createElement('ul')
@@ -103,74 +95,27 @@ class App {
             if (inputValue.length >= 3) {
                 RecipesSection.innerHTML = ""
                 emptyFilters()
-                this.findInTitle(inputValue, RecipesData)
-                this.findInIngredients(inputValue, RecipesData)
-                this.findInDescription(inputValue, RecipesData)
-                this.concatener(resultsTitles, resultsDescriptions, resultsIngredients)
+                this.filterRecipe(inputValue, RecipesData)
                 this.displayData(concat)
+                clickonFilters()
             } else if (inputValue.length < 3) {
                 RecipesSection.innerHTML = ""
                 emptyFilters()
                 this.displayData(RecipesData)
+                clickonFilters()
             }
         })
     }
-    // cette fonction recherche le résultat de l'input dans les titres des recettes
-    findInTitle(inputValue, RecipesData) {
-        resultsTitles = []
-        for (let i = 0; i < RecipesData.length; i++) {
-            if (RecipesData[i].name.toLowerCase().includes(inputValue)) {
-                resultsTitles.push(RecipesData[i])
-                
-            }
-        }
-
+    // filtre avec le champ de la recherche principale - on écarte chaque élément qui ne contient pas le valeur de recherche dans un des 3 champ de recherche
+    filterRecipe(inputValue, RecipesData) {
+        let result = RecipesData.filter(
+            element => 
+            element.name.toLowerCase().includes(inputValue) ||
+            element.description.toLowerCase().includes(inputValue) ||
+            element.ingredients.includes(inputValue))
+            concat = result.map(data => new RecipeCard(data))
     }
 
-    // cette fonction recherche le résultat de l'input dans les descriptions des recettes
-    findInDescription(inputValue, RecipesData) {
-        resultsDescriptions = []
-        for (let i = 0; i < RecipesData.length; i++) {
-            if (RecipesData[i].description.toLowerCase().includes(inputValue)) {
-                resultsDescriptions.push(RecipesData[i])
-                
-            }
-        }
-    }
-
-    // cette fonction recherche le résultat de l'input dans les ingrédients des recettes
-    findInIngredients(inputValue, RecipesData) {
-        resultsIngredients = []
-        for (let i = 0; i < RecipesData[i].length; i++) {
-            if (RecipesData[i].ingredients.toLowerCase().includes(inputValue)) {
-                resultsIngredients.push(RecipesData[i])
-                // console.log(resultsIngredients)
-            }
-        }
-    }
-
-    // concatener les 3 résultats ensembles
-    concatener(resultsTitles, resultsDescriptions, resultsIngredients) {
-        resultsConcat = resultsTitles.concat(resultsDescriptions, resultsIngredients)
-        // console.log(resultsConcat)
-        concat = Array.from(new Set(resultsConcat))
-        console.log(concat)
-        let element = concat.map(data => new RecipeCard(data))
-        console.log(element)
-        
-    }
-//     searchAlgo(inputValue, RecipesData) {
-//         resultsConcat = []
-//         concat = []
-//         RecipesData.forEach(element => {
-//             // console.log(element.ingredients)
-//             if(element.name.toLowerCase().includes(inputValue) || element.description.toLowerCase().includes(inputValue) || element.ingredients.includes(inputValue)){
-//                 resultsConcat.push(element)
-//                 concat = Array.from(new Set(resultsConcat))
-//                 console.log(concat)
-//             }
-//     })
-// }
     async init() {
         // const RecipesData = await this.getApi()
         let RecipesData = await this.getApi()
@@ -184,5 +129,5 @@ class App {
 
 const app = new App()
 app.init()
-// app.input()
+
 
