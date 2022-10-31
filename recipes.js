@@ -459,10 +459,17 @@ const recipes = [
                 "unit": "cuillère à soupe"
             }
         ],
+<<<<<<< Updated upstream:recipes.js
         "time":40,
         "description":"Cuire les pommes de terre environ 30 minutes. Découper les échalotes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
         "appliance": "Casserole",
         "ustensils":["couteau","saladier","cuillère en bois"]
+=======
+        "time": 40,
+        "description": "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
+        "appliance": "Casserolle",
+        "ustensils": ["couteau", "saladier", "cuillère en bois"]
+>>>>>>> Stashed changes:assets/data/recipes.js
     },
     {
         "id": 14,
