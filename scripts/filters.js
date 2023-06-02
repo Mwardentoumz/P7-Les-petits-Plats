@@ -84,6 +84,8 @@ export function clickonFilters() {
     }
 }
 
+// vercel
+
 // créer le bouton lors du clic dans les filtres
 function createButton(btnValue,e) {
     let newFilter = document.createElement('button')
