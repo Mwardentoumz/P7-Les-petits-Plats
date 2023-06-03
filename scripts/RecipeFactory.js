@@ -51,7 +51,7 @@ export class RecipeCard {
         
         const card = `
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../assets/data/grey.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="./assets/data/grey.jpg" alt="Card image cap">
                     <div class="card-body">
                         <aside>
                             <h2 class="card-title">${this._name}</h2>

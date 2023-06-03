@@ -17,7 +17,7 @@ let concat = []
 class App {
     constructor() {
         // retrieve the data
-        this.RecipesApi = new RecipesApi('../assets/data/recipes.json')
+        this.RecipesApi = new RecipesApi('./assets/data/recipes.json')
     }
     // cette fonction récupère l
     async getApi() {
@@ -48,7 +48,7 @@ class App {
             // contenu HTML des cartes
             var card = `
                     <div id"cards" class="card center mb-5 mw-25">
-                        <img id="cartesimg" class="card-img-top" src="../assets/data/images/${element._name}.jpg" alt="Card image cap">
+                        <img id="cartesimg" class="card-img-top" src="./assets/data/images/${element._name}.jpg" alt="Card image cap">
                         <div class="card-body">
                             <div class="row header">
                                 <h2 class="card-title">${element._name}</h2>
